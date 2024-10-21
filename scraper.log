@@ -1,2 +1,11 @@
 2024-10-21 17:05:37,334:WARNING: * Debugger is active!
 2024-10-21 17:05:37,335:INFO: * Debugger PIN: 275-363-329
+2024-10-21 17:14:03,027:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-10-21 17:14:03,028:INFO:[33mPress CTRL+C to quit[0m
+2024-10-21 17:14:03,028:INFO: * Restarting with stat
+2024-10-21 17:14:03,362:WARNING: * Debugger is active!
+2024-10-21 17:14:03,363:INFO: * Debugger PIN: 275-363-329
+2024-10-21 17:14:13,408:INFO:127.0.0.1 - - [21/Oct/2024 17:14:13] "GET / HTTP/1.1" 200 -
+2024-10-21 17:14:46,472:INFO:127.0.0.1 - - [21/Oct/2024 17:14:46] "POST /scrape HTTP/1.1" 200 -
+2024-10-21 17:14:47,034:INFO:127.0.0.1 - - [21/Oct/2024 17:14:47] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
