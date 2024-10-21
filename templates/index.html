@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Scraper - Multiple URLs</title>
+    <!-- Tailwind CSS for styling -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-900 text-white">
+
+    <div class="flex justify-center items-center min-h-screen">
+        <div class="max-w-lg w-full text-center p-8 bg-gray-800 rounded-lg shadow-lg">
+            <h1 class="text-3xl font-semibold mb-6">Web Scraper - Enter URLs</h1>
+            <form id="urlForm" action="/scrape" method="POST">
+                <div id="urlInputs" class="mb-4">
+                    <label for="url1" class="block text-lg mb-2">Enter URL:</label>
+                    <div class="relative mb-4">
+                        <input type="url" id="url1" name="urls" class="w-full p-4 rounded-lg text-gray-900" placeholder="https://example.com" required>
+                    </div>
+                </div>
+                <button type="button" id="addLink" class="bg-blue-600 py-2 px-4 rounded-lg text-lg hover:bg-blue-700 transition">Add Link</button>
+                <button type="submit" class="mt-4 bg-green-600 py-2 px-4 rounded-lg text-lg hover:bg-green-700 transition">Scrape</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const addLinkButton = document.getElementById('addLink');
+        const urlInputsContainer = document.getElementById('urlInputs');
+        let linkCount = 1; // Start with one input
+
+        // Function to add a new input field for a new link
+        addLinkButton.addEventListener('click', () => {
+            linkCount++;
+            const newInput = document.createElement('div');
+            newInput.className = "relative mb-4";
+            newInput.innerHTML = `
+                <label for="url${linkCount}" class="block text-lg mb-2">Enter URL ${linkCount}:</label>
+                <input type="url" id="url${linkCount}" name="urls" class="w-full p-4 rounded-lg text-gray-900" placeholder="https://example.com" required>
+                ${linkCount > 1 ? '<span class="absolute right-3 top-3 cursor-pointer text-red-600 text-xl removeLink" title="Remove this link">&times;</span>' : ''}
+            `;
+            urlInputsContainer.appendChild(newInput);
+        });
+
+        // Function to remove a link input field
+        urlInputsContainer.addEventListener('click', (event) => {
+            if (event.target.classList.contains('removeLink')) {
+                event.target.parentElement.remove(); // Remove the entire input field
+                linkCount--; // Decrement link count
+            }
+        });
+    </script>
+
+</body>
+
+</html>
